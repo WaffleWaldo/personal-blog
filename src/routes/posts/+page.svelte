@@ -1,10 +1,13 @@
 <script>
-    export let data;
+	import { Collection } from 'sveltefire';
+
 </script>
 
 <h1>Posts</h1>
-{#each data.posts as post (post.id)}
-    <h2>
-        <a href={`/posts/${post.id}`}>{post.title}</a>
-    </h2>
-{/each}
+<Collection ref="blogs" let:data let:count>
+    <p>There are {count} blogs</p>
+    {#each data as blog}
+        <h2>{[blog.title]}</h2>
+        <p>{[blog.contents]}</p>
+    {/each}
+</Collection>
