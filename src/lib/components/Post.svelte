@@ -1,6 +1,6 @@
 <script>
 	import { Collection, collectionStore } from 'sveltefire';
-    import { collection, where, query } from 'firebase/firestore';
+    import { collection, query, where } from 'firebase/firestore'
     import { firestore } from '$lib/firebase';
 
     const blogsRef = collection(firestore, 'blogs');

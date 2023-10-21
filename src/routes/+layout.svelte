@@ -7,6 +7,7 @@
 
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup, AppShell } from '@skeletonlabs/skeleton';
+	import Nav from '$lib/components/Nav.svelte';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 
 
@@ -16,17 +17,10 @@
 
 <FirebaseApp {auth} {firestore} {storage}>
 
-	<SignedIn let:user let:signOut>
+	<SignedIn>
 		<AppShell>
 			<svelte:fragment slot="header">
-				<nav>
-					<a href="/">Home</a>
-					<a href="/about">About</a>
-					<a href="/contact">Contact</a>
-					<a href="/posts">Posts</a>
-					<p>Hello {user.uid}</p>
-					<button on:click={signOut}>Sign Out</button>
-				</nav>
+				<Nav />
 			</svelte:fragment>
 			<slot />
 		</AppShell>
